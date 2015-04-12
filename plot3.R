@@ -10,7 +10,7 @@ data <- data[complete.cases(data),]                                             
 data$Date <- as.Date(data$Date, "%d/%m/%Y")                                                                         # Coerce Date column to as.Date
 x <- data[which((data$Date >= "2007-02-01" & data$Date<= "2007-02-02")), ]                                          # Subset 2007-02-01 and 2007-02-02 dates 
 x <- data.table(x)                                                                                                  # Coerce data set to data.table
-x <- x[, DateTime:=paste(x$Date, x$Time)]  
+x <- x[, DateTime:=paste(x$Date, x$Time)]                                                                           # Add a new conlumn "DayeTime", which consits of date and time
 x$DateTime <- ymd_hms(x$DateTime)                                                                                   # Coerce DateTime column to as.Date
 
 png(width=480, height=480, file = "plot3.png")                                                                      # Open a PNG device
